@@ -122,6 +122,15 @@ else
     recho "Buildroot directory already exists. Skipping extraction."
 fi
 
+# buildroot_dl_backup.tar.gz のダウンロードと展開
+recho "extract dl files"
+if [ -f "$EXT_DIR/buildroot_dl_backup.tar.gz" ]; then
+    recho "Extracting..."
+    tar -xzvf $EXT_DIR/buildroot_dl_backup.tar.gz -C $BUILDROOT_DIR/
+else
+    recho "file not found. Skipping extraction."
+fi
+
 # Buildroot の実行
 recho " "
 recho "Buildroot start!"
